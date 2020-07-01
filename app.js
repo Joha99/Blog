@@ -61,8 +61,11 @@ app.get("/posts/:postID", function (req, res) {
     let postTitle = _.lowerCase(post.title); 
     if (postTitle === postID) {
       console.log("Title match found"); 
+      res.render("post", { postPageTitle: post.title, postPageContent: post.content}); 
     }
   }); 
+  
+  res.send("Post with requested title not found"); 
 }); 
 
 
